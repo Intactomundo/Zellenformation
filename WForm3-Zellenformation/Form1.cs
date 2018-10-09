@@ -13,7 +13,6 @@ namespace WForm3_Zellenformation
     public partial class Form1 : Form
     {
         private Board _board;
-        public bool CellAlive { get; private set; }
 
         public Form1()
         {
@@ -25,44 +24,18 @@ namespace WForm3_Zellenformation
             MinimumSize = new Size(735, 575);
             MaximumSize = new Size(735, 575);
         }
-        public void Panel1_Grid()
-        {
-            CellAlive = false;
-            var graph = panel1.CreateGraphics();
-            int numOfCells = Convert.ToInt32(tb1di.Text);
-            int cellSizeY = 501 / numOfCells;
-            int cellSizeX = 501 / numOfCells;
-            Pen p = new Pen(Brushes.Black, 1);
-            for (int y = 0; y < numOfCells + 1; y++)
-            {
-                graph.DrawLine(p, 0, y * cellSizeY, numOfCells * cellSizeY, y * cellSizeY);
-            }
-
-            for (int x = 0; x < numOfCells + 1; x++)
-            {
-                graph.DrawLine(p, x * cellSizeX, 0, x * cellSizeX, numOfCells * cellSizeX);
-            }
-        }
         private void Form1_Shown(object sender, EventArgs e)
         {
             _board = new Board(Convert.ToInt32(tb1di.Text));
-            Panel1_Grid();
+            DrawGrid();
         }
-
-        private void Btn1draw_MouseDown(object sender, MouseEventArgs e)
-        {
-            var p = panel1.CreateGraphics();
-            p.Clear(Color.WhiteSmoke);
-            Panel1_Grid();
-        }
-
-        private void Btn6cg_MouseDown(object sender, MouseEventArgs e)
-        {
-            var p = panel1.CreateGraphics();
-            p.Clear(Color.WhiteSmoke);
-            Panel1_Grid();
-        }
-
+        //private void Btn1draw_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    var g = panel1.CreateGraphics();
+        //    g.Clear(Color.WhiteSmoke);
+        //    _board.Clear();
+        //    DrawGrid();
+        //}
         public void Panel1_MouseClick(object sender, MouseEventArgs e)
         {
             int numOfCells = Convert.ToInt32(tb1di.Text);
@@ -80,19 +53,74 @@ namespace WForm3_Zellenformation
                 round = new Rectangle(RowPos + 1, ColumnPos + 1, cellSize - 1, cellSize - 1);
                 draw.DrawRectangle(new Pen(Brushes.Black), round);
                 draw.FillRectangle(Brushes.LawnGreen, round);
-                CellAlive = true;
+                _board.SetCellValue(row, column, true);
             }
             else if (e.Button == MouseButtons.Right)
             {
                 round = new Rectangle(RowPos + 1, ColumnPos + 1, cellSize - 1, cellSize - 1);
                 draw.DrawRectangle(new Pen(Brushes.Black), round);
                 draw.FillRectangle(Brushes.WhiteSmoke, round);
-                CellAlive = false;
+                _board.SetCellValue(row, column, false);
             }
         }
         private void Btn1draw_Click(object sender, EventArgs e)
         {
             _board = new Board(Convert.ToInt32(tb1di.Text));
+            var g = panel1.CreateGraphics();
+            g.Clear(Color.WhiteSmoke);
+            _board.Clear();
+            DrawGrid();
+
+        }
+        private void DrawGrid()
+        {
+            var graph = panel1.CreateGraphics();
+            int numOfCells = _board._size;
+            int cellSizeY = 501 / numOfCells;
+            int cellSizeX = 501 / numOfCells;
+            Pen p = new Pen(Brushes.Black, 1);
+            for (int y = 0; y < numOfCells + 1; y++)
+            {
+                graph.DrawLine(p, 0, y * cellSizeY, numOfCells * cellSizeY, y * cellSizeY);
+            }
+
+            for (int x = 0; x < numOfCells + 1; x++)
+            {
+                graph.DrawLine(p, x * cellSizeX, 0, x * cellSizeX, numOfCells * cellSizeX);
+            }
+            for (int i = 0; i < _board._size; i++)
+            {
+                for (int j = 0; j < _board._size; j++)
+                {
+                    if (_board.GetCellValue(i, j) == true)
+                    {
+                        int cellSize = 501 / numOfCells;
+                        int RowPos = i * cellSize;
+                        int ColumnPos = j * cellSize;
+                        Graphics draw = panel1.CreateGraphics();
+                        var round = new Rectangle(RowPos + 1, ColumnPos + 1, cellSize - 1, cellSize - 1);
+                        draw.DrawRectangle(new Pen(Brushes.Black), round);
+                        draw.FillRectangle(Brushes.LawnGreen, round);
+                    }
+                    else
+                    {
+                        int cellSize = 501 / numOfCells;
+                        int RowPos = i * cellSize;
+                        int ColumnPos = j * cellSize;
+                        Graphics draw = panel1.CreateGraphics();
+                        var round = new Rectangle(RowPos + 1, ColumnPos + 1, cellSize - 1, cellSize - 1);
+                        draw.DrawRectangle(new Pen(Brushes.Black), round);
+                        draw.FillRectangle(Brushes.WhiteSmoke, round);
+                    }
+                }
+            }
+
+        }
+
+        private void Btn2ng_Click(object sender, EventArgs e)
+        {
+            _board.CalcNextGen();
+            DrawGrid();
         }
     }
 }

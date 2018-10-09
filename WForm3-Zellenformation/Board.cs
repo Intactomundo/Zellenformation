@@ -13,18 +13,26 @@ namespace WForm3_Zellenformation
 {
     class Board
     {
-        private static int _size { get; set; }
+        public int _size { get; set; }
+
+        private bool[,] _board;
 
         public Board(int size)
         {
             _size = size;
+            _board = new bool[_size, _size];
         }
-
-        bool[,] _board = new bool[_size, _size];
 
         public bool GetCellValue(int row, int column)
         {
-            return _board[row, column];
+            if (row < 0 || row > _size - 1 || column < 0 || column > _size - 1)
+            {
+                return false;
+            }
+            else
+            {
+                return _board[row, column];
+            }
         }
         public void SetCellValue (int row, int column, bool value)
         {
@@ -44,17 +52,17 @@ namespace WForm3_Zellenformation
         {
             int count = 0;
 
-            // Cells on the right of the Cells
-            if (GetCellValue(row + 1, column) == true)
+            // Cell on the right of the Cells
+            if (GetCellValue(row, column + 1) == true)
             {
                 count++;
             }
-            // Cells on the bottom right of the Cells
+            // Cell on the bottom right of the Cells
             if (GetCellValue(row + 1, column + 1) == true)
             {
                 count++;
             }
-            // Cells on the bottom of the Cells
+            // Cell on the bottom of the Cells
             if (GetCellValue(row + 1, column) == true)
             {
                 count++;
@@ -96,7 +104,7 @@ namespace WForm3_Zellenformation
                 {
                     if (_board[i, j] == true)
                     {
-                        if (CalcNeighbourCount(i, j) >= 2 || CalcNeighbourCount(i, j) <= 3)
+                        if (CalcNeighbourCount(i, j) >= 2 && CalcNeighbourCount(i, j) <= 3)
                         {
                             nextGenBoard[i, j] = true;
                         }
