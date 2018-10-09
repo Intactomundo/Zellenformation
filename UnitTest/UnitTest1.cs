@@ -35,9 +35,6 @@ namespace UnitTest
             var board = new Board(10);
             board.SetCellValue(4, 3, true);
 
-            //act
-            board.GetCellValue(4, 3);
-
             //assert
             Assert.AreEqual(true, board.GetCellValue(4, 3));
         }
@@ -58,11 +55,11 @@ namespace UnitTest
         {
             //arrange
             var board = new Board(10);
-
-            //act
             board.SetCellValue(2, 3, true);
             board.SetCellValue(3, 3, true);
             board.SetCellValue(4, 3, true);
+
+            //act
             board.CalcNextGen();
 
             //assert
