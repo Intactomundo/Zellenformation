@@ -11,7 +11,7 @@ using WForm3_Zellenformation;
 
 namespace WForm3_Zellenformation
 {
-    class Board
+    public class Board
     {
         public int _size { get; set; }
 
