@@ -158,10 +158,16 @@ namespace WForm3_Zellenformation
                     line.Append(_board._board[rowIndex, colIndex]).Append("; ");
                 linesToWrite.Add(line.ToString());
             }
-
             System.IO.File.WriteAllLines("C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text + ".txt", linesToWrite.ToArray());
         }
 
+        private void _Window_Load(object sender, EventArgs e)
+        {
+            string[] files = System.IO.Directory.GetFiles(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles");
+            
+
+            this._patternList.Items.AddRange(files);
+        }
     }
 }
 
