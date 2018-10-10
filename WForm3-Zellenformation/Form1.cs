@@ -10,35 +10,28 @@ using System.Windows.Forms;
 
 namespace WForm3_Zellenformation
 {
-    public partial class Form1 : Form
+    public partial class _Window : Form
     {
         private Board _board;
 
-        public Form1()
+        public _Window()
         {
             InitializeComponent();
-            Form1_MinimumSize();
+            _WindowAutoSize();
         }
-        private void Form1_MinimumSize()
+        private void _WindowAutoSize()
         {
             MinimumSize = new Size(735, 575);
             MaximumSize = new Size(735, 575);
         }
-        private void Form1_Shown(object sender, EventArgs e)
+        private void _Window_Shown(object sender, EventArgs e)
         {
-            _board = new Board(Convert.ToInt32(tb1di.Text));
+            _board = new Board(Convert.ToInt32(_dimensions.Text));
             DrawGrid();
         }
-        //private void Btn1draw_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    var g = panel1.CreateGraphics();
-        //    g.Clear(Color.WhiteSmoke);
-        //    _board.Clear();
-        //    DrawGrid();
-        //}
-        public void Panel1_MouseClick(object sender, MouseEventArgs e)
+        public void _mainBoard_MouseClick(object sender, MouseEventArgs e)
         {
-            int numOfCells = Convert.ToInt32(tb1di.Text);
+            int numOfCells = Convert.ToInt32(_dimensions.Text);
             int cellSize = 501 / numOfCells;
             int ClickPosX = e.Location.X;
             int ClickPosY = e.Location.Y;
@@ -46,7 +39,7 @@ namespace WForm3_Zellenformation
             int column = ClickPosY / cellSize;
             int RowPos = row * cellSize;
             int ColumnPos = column * cellSize;
-            Graphics draw = panel1.CreateGraphics();
+            Graphics draw = _mainBoard.CreateGraphics();
             Rectangle round;
             if (e.Button == MouseButtons.Left)
             {
@@ -63,10 +56,10 @@ namespace WForm3_Zellenformation
                 _board.SetCellValue(row, column, false);
             }
         }
-        private void Btn1draw_Click(object sender, EventArgs e)
+        private void _drawGrid_Click(object sender, EventArgs e)
         {
-            _board = new Board(Convert.ToInt32(tb1di.Text));
-            var g = panel1.CreateGraphics();
+            _board = new Board(Convert.ToInt32(_dimensions.Text));
+            var g = _mainBoard.CreateGraphics();
             g.Clear(Color.WhiteSmoke);
             _board.Clear();
             DrawGrid();
@@ -74,7 +67,7 @@ namespace WForm3_Zellenformation
         }
         private void DrawGrid()
         {
-            var graph = panel1.CreateGraphics();
+            var graph = _mainBoard.CreateGraphics();
             int numOfCells = _board._size;
             int cellSizeY = 501 / numOfCells;
             int cellSizeX = 501 / numOfCells;
@@ -97,7 +90,7 @@ namespace WForm3_Zellenformation
                         int cellSize = 501 / numOfCells;
                         int RowPos = i * cellSize;
                         int ColumnPos = j * cellSize;
-                        Graphics draw = panel1.CreateGraphics();
+                        Graphics draw = _mainBoard.CreateGraphics();
                         var round = new Rectangle(RowPos + 1, ColumnPos + 1, cellSize - 1, cellSize - 1);
                         draw.DrawRectangle(new Pen(Brushes.Black), round);
                         draw.FillRectangle(Brushes.LawnGreen, round);
@@ -107,7 +100,7 @@ namespace WForm3_Zellenformation
                         int cellSize = 501 / numOfCells;
                         int RowPos = i * cellSize;
                         int ColumnPos = j * cellSize;
-                        Graphics draw = panel1.CreateGraphics();
+                        Graphics draw = _mainBoard.CreateGraphics();
                         var round = new Rectangle(RowPos + 1, ColumnPos + 1, cellSize - 1, cellSize - 1);
                         draw.DrawRectangle(new Pen(Brushes.Black), round);
                         draw.FillRectangle(Brushes.WhiteSmoke, round);
@@ -117,10 +110,40 @@ namespace WForm3_Zellenformation
 
         }
 
-        private void Btn2ng_Click(object sender, EventArgs e)
+        private void _nextGen_Click(object sender, EventArgs e)
         {
+            _genCounter.Text = string.Empty;
             _board.CalcNextGen();
             DrawGrid();
+            var GenerationCounter = Convert.ToString(_board._genNum);
+            _genCounter.AppendText(GenerationCounter);
+        }
+
+        private void _startStopNextGen_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_startStopNextGen.Checked)
+            {
+                _myTimer.Enabled = true;
+            }
+            else
+            {
+                _myTimer.Enabled = false;
+            }
+        }
+        private void InitializeMyTimer()
+        {
+            _myTimer.Tick += new EventHandler(_myTimer_Tick);
+        }
+        private void _myTimer_Tick(object sender, EventArgs e)
+        {
+            if(_myTimer.Enabled == true)
+            {
+                _genCounter.Text = string.Empty;
+                _board.CalcNextGen();
+                DrawGrid();
+                var GenerationCounter = Convert.ToString(_board._genNum);
+                _genCounter.AppendText(GenerationCounter);
+            }
         }
     }
 }

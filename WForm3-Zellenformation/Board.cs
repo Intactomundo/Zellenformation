@@ -14,6 +14,8 @@ namespace WForm3_Zellenformation
     public class Board
     {
         public int _size { get; set; }
+        public int _genNum { get; set; }
+
 
         private bool[,] _board;
 
@@ -118,7 +120,23 @@ namespace WForm3_Zellenformation
                     }
                 }
             }
+            _genNum++;
             _board = nextGenBoard;
+        }
+        public int CountCells(bool value)
+        {
+            int cellsCount = 0;
+            for (int i = 0; i < _size; i++)
+            {
+                for (int j = 0; j < _size; j++)
+                {
+                    if (GetCellValue(i, j) == value)
+                    {
+                        cellsCount++;
+                    }
+                }
+            }
+            return cellsCount;
         }
     }
 }

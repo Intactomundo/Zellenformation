@@ -68,14 +68,14 @@ namespace UnitTest
             Assert.AreEqual(true, board.GetCellValue(3, 4));
             Assert.AreEqual(false, board.GetCellValue(2, 3));
             Assert.AreEqual(false, board.GetCellValue(4, 3));
+            Assert.AreEqual(97, board.CountCells(false));
+
         }
         [TestMethod]
         public void CalcNextGenCalculatesCorrectNextGen2()
         {
             //arrange
             var board = new Board(10);
-
-            //act
             board.SetCellValue(2, 3, true);
             board.SetCellValue(3, 3, true);
             board.SetCellValue(4, 3, true);
@@ -93,18 +93,19 @@ namespace UnitTest
             Assert.AreEqual(true, board.GetCellValue(4, 3));
             Assert.AreEqual(true, board.GetCellValue(4, 4));
             Assert.AreEqual(false, board.GetCellValue(3, 3));
+            Assert.AreEqual(92, board.CountCells(false));
         }
         [TestMethod]
         public void CalcNextGenCalculatesCorrectNextGen3()
         {
             //arrange
             var board = new Board(10);
-
-            //act
             board.SetCellValue(2, 3, true);
             board.SetCellValue(3, 3, true);
             board.SetCellValue(2, 4, true);
             board.SetCellValue(3, 4, true);
+
+            //act
             board.CalcNextGen();
 
             //assert
@@ -112,20 +113,22 @@ namespace UnitTest
             Assert.AreEqual(true, board.GetCellValue(3, 3));
             Assert.AreEqual(true, board.GetCellValue(2, 4));
             Assert.AreEqual(true, board.GetCellValue(3, 4));
+            Assert.AreEqual(96, board.CountCells(false));
+
         }
         [TestMethod]
         public void CalcNextGenCalculatesCorrectNextGen4()
         {
             //arrange
             var board = new Board(10);
-
-            //act
             board.SetCellValue(2, 2, true);
             board.SetCellValue(3, 2, true);
             board.SetCellValue(2, 3, true);
             board.SetCellValue(4, 5, true);
             board.SetCellValue(5, 5, true);
             board.SetCellValue(5, 4, true);
+
+            //act
             board.CalcNextGen();
 
             //assert
@@ -137,35 +140,39 @@ namespace UnitTest
             Assert.AreEqual(true, board.GetCellValue(5, 4));
             Assert.AreEqual(true, board.GetCellValue(4, 4));
             Assert.AreEqual(true, board.GetCellValue(3, 3));
+            Assert.AreEqual(92, board.CountCells(false));
+
         }
         [TestMethod]
         public void CalcNextGenCalculatesCorrectNextGen5()
         {
             //arrange
             var board = new Board(10);
-
-            //act
             board.SetCellValue(0, 0, true);
             board.SetCellValue(0, 1, true);
             board.SetCellValue(0, 2, true);
+
+            //act
             board.CalcNextGen();
 
             //assert
             Assert.AreEqual(true, board.GetCellValue(0, 1));
             Assert.AreEqual(true, board.GetCellValue(1, 1));
+            Assert.AreEqual(98, board.CountCells(false));
+
         }
         [TestMethod]
         public void CalcNextGenCalculatesCorrectNextGen6()
         {
             //arrange
             var board = new Board(10);
-
-            //act
             board.SetCellValue(2, 2, true);
             board.SetCellValue(2, 3, true);
             board.SetCellValue(3, 1, true);
             board.SetCellValue(3, 2, true);
             board.SetCellValue(4, 1, true);
+
+            //act
             board.CalcNextGen();
 
             //assert
@@ -176,14 +183,14 @@ namespace UnitTest
             Assert.AreEqual(true, board.GetCellValue(3, 3));
             Assert.AreEqual(true, board.GetCellValue(4, 1));
             Assert.AreEqual(true, board.GetCellValue(4, 2));
+            Assert.AreEqual(93, board.CountCells(false));
+
         }
         [TestMethod]
         public void CalcNextGenCalculatesCorrectNextGen7()
         {
             //arrange
             var board = new Board(10);
-
-            //act
             board.SetCellValue(3, 3, true);
             board.SetCellValue(3, 4, true);
             board.SetCellValue(3, 5, true);
@@ -196,6 +203,8 @@ namespace UnitTest
             board.SetCellValue(6, 4, true);
             board.SetCellValue(6, 5, true);
             board.SetCellValue(6, 6, true);
+
+            //act
             board.CalcNextGen();
 
             //assert
@@ -219,14 +228,14 @@ namespace UnitTest
             Assert.AreEqual(true, board.GetCellValue(6, 6));
             Assert.AreEqual(true, board.GetCellValue(7, 4));
             Assert.AreEqual(true, board.GetCellValue(7, 5));
+            Assert.AreEqual(80, board.CountCells(false));
+
         }
         [TestMethod]
         public void CalcNextGenCalculatesCorrectNextGen8()
         {
             //arrange
             var board = new Board(10);
-
-            //act
             board.SetCellValue(9, 5, true);
             board.SetCellValue(8, 5, true);
             board.SetCellValue(8, 6, true);
@@ -236,6 +245,8 @@ namespace UnitTest
             board.SetCellValue(6, 8, true);
             board.SetCellValue(5, 8, true);
             board.SetCellValue(5, 9, true);
+
+            //act
             board.CalcNextGen();
 
             //assert
@@ -252,6 +263,19 @@ namespace UnitTest
             Assert.AreEqual(true, board.GetCellValue(6, 8));
             Assert.AreEqual(true, board.GetCellValue(5, 8));
             Assert.AreEqual(true, board.GetCellValue(5, 9));
+            Assert.AreEqual(87, board.CountCells(false));
+        }
+        [TestMethod]
+        public void CountCellsCountsRightNumberOfCells()
+        {
+            //arrange
+            var board = new Board(5);
+            board.SetCellValue(0, 0, true);
+            board.SetCellValue(1, 1, true);
+            board.SetCellValue(3, 3, true);
+
+            //assert
+            Assert.AreEqual(22, board.CountCells(false));
         }
     }
 }

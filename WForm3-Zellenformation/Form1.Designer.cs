@@ -1,6 +1,6 @@
 ﻿namespace WForm3_Zellenformation
 {
-    partial class Form1
+    partial class _Window
     {
         /// <summary>
         /// Required designer variable.
@@ -29,238 +29,245 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1di = new System.Windows.Forms.Label();
-            this.btn1draw = new System.Windows.Forms.Button();
-            this.btn2ng = new System.Windows.Forms.Button();
-            this.btn3pg = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this._mainBoard = new System.Windows.Forms.Panel();
+            this._label1 = new System.Windows.Forms.Label();
+            this._drawGrid = new System.Windows.Forms.Button();
+            this._nextGen = new System.Windows.Forms.Button();
+            this._previousGen = new System.Windows.Forms.Button();
+            this._tableAlive = new System.Windows.Forms.TableLayoutPanel();
+            this._tableDead = new System.Windows.Forms.TableLayoutPanel();
+            this._patternList = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label2alive = new System.Windows.Forms.Label();
-            this.label3dead = new System.Windows.Forms.Label();
-            this.label4pattern = new System.Windows.Forms.Label();
-            this.label5gc = new System.Windows.Forms.Label();
-            this.tb2gc = new System.Windows.Forms.TextBox();
-            this.btn4sp = new System.Windows.Forms.Button();
-            this.btn5dp = new System.Windows.Forms.Button();
-            this.label5stst = new System.Windows.Forms.Label();
-            this.cb1stst = new System.Windows.Forms.CheckBox();
-            this.tb1di = new System.Windows.Forms.NumericUpDown();
+            this._label4 = new System.Windows.Forms.Label();
+            this._label5 = new System.Windows.Forms.Label();
+            this._label6 = new System.Windows.Forms.Label();
+            this._label3 = new System.Windows.Forms.Label();
+            this._genCounter = new System.Windows.Forms.TextBox();
+            this._savePattern = new System.Windows.Forms.Button();
+            this._deletePattern = new System.Windows.Forms.Button();
+            this._label2 = new System.Windows.Forms.Label();
+            this._startStopNextGen = new System.Windows.Forms.CheckBox();
+            this._dimensions = new System.Windows.Forms.NumericUpDown();
+            this._myTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb1di)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._dimensions)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // _mainBoard
             // 
-            this.panel1.Location = new System.Drawing.Point(25, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1002, 1002);
-            this.panel1.TabIndex = 0;
-            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Panel1_MouseClick);
+            this._mainBoard.Location = new System.Drawing.Point(25, 35);
+            this._mainBoard.Name = "_mainBoard";
+            this._mainBoard.Size = new System.Drawing.Size(1002, 1002);
+            this._mainBoard.TabIndex = 0;
+            this._mainBoard.MouseClick += new System.Windows.Forms.MouseEventHandler(this._mainBoard_MouseClick);
             // 
-            // label1di
+            // _label1
             // 
-            this.label1di.AutoSize = true;
-            this.label1di.Location = new System.Drawing.Point(1148, 35);
-            this.label1di.Name = "label1di";
-            this.label1di.Size = new System.Drawing.Size(113, 25);
-            this.label1di.TabIndex = 1;
-            this.label1di.Text = "Dimension";
+            this._label1.AutoSize = true;
+            this._label1.Location = new System.Drawing.Point(1148, 35);
+            this._label1.Name = "_label1";
+            this._label1.Size = new System.Drawing.Size(113, 25);
+            this._label1.TabIndex = 1;
+            this._label1.Text = "Dimension";
             // 
-            // btn1draw
+            // _drawGrid
             // 
-            this.btn1draw.Location = new System.Drawing.Point(1055, 119);
-            this.btn1draw.Name = "btn1draw";
-            this.btn1draw.Size = new System.Drawing.Size(296, 55);
-            this.btn1draw.TabIndex = 3;
-            this.btn1draw.Text = "Draw Grid";
-            this.btn1draw.UseVisualStyleBackColor = true;
-            this.btn1draw.Click += new System.EventHandler(this.Btn1draw_Click);
+            this._drawGrid.Location = new System.Drawing.Point(1055, 119);
+            this._drawGrid.Name = "_drawGrid";
+            this._drawGrid.Size = new System.Drawing.Size(296, 55);
+            this._drawGrid.TabIndex = 3;
+            this._drawGrid.Text = "Draw Grid";
+            this._drawGrid.UseVisualStyleBackColor = true;
+            this._drawGrid.Click += new System.EventHandler(this._drawGrid_Click);
             // 
-            // btn2ng
+            // _nextGen
             // 
-            this.btn2ng.Location = new System.Drawing.Point(1055, 200);
-            this.btn2ng.Name = "btn2ng";
-            this.btn2ng.Size = new System.Drawing.Size(296, 55);
-            this.btn2ng.TabIndex = 4;
-            this.btn2ng.Text = "Next Gen";
-            this.btn2ng.UseVisualStyleBackColor = true;
-            this.btn2ng.Click += new System.EventHandler(this.Btn2ng_Click);
+            this._nextGen.Location = new System.Drawing.Point(1055, 200);
+            this._nextGen.Name = "_nextGen";
+            this._nextGen.Size = new System.Drawing.Size(296, 55);
+            this._nextGen.TabIndex = 4;
+            this._nextGen.Text = "Next Gen";
+            this._nextGen.UseVisualStyleBackColor = true;
+            this._nextGen.Click += new System.EventHandler(this._nextGen_Click);
             // 
-            // btn3pg
+            // _previousGen
             // 
-            this.btn3pg.Location = new System.Drawing.Point(1055, 444);
-            this.btn3pg.Name = "btn3pg";
-            this.btn3pg.Size = new System.Drawing.Size(296, 55);
-            this.btn3pg.TabIndex = 5;
-            this.btn3pg.Text = "Previous Gen";
-            this.btn3pg.UseVisualStyleBackColor = true;
+            this._previousGen.Location = new System.Drawing.Point(1055, 444);
+            this._previousGen.Name = "_previousGen";
+            this._previousGen.Size = new System.Drawing.Size(296, 55);
+            this._previousGen.TabIndex = 5;
+            this._previousGen.Text = "Previous Gen";
+            this._previousGen.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
+            // _tableAlive
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.LawnGreen;
-            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(1055, 521);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(40, 40);
-            this.tableLayoutPanel1.TabIndex = 6;
+            this._tableAlive.BackColor = System.Drawing.Color.LawnGreen;
+            this._tableAlive.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
+            this._tableAlive.ColumnCount = 1;
+            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this._tableAlive.Location = new System.Drawing.Point(1055, 521);
+            this._tableAlive.Name = "_tableAlive";
+            this._tableAlive.RowCount = 1;
+            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this._tableAlive.Size = new System.Drawing.Size(40, 40);
+            this._tableAlive.TabIndex = 6;
             // 
-            // tableLayoutPanel2
+            // _tableDead
             // 
-            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(1055, 579);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(40, 40);
-            this.tableLayoutPanel2.TabIndex = 7;
+            this._tableDead.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
+            this._tableDead.ColumnCount = 1;
+            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this._tableDead.Location = new System.Drawing.Point(1055, 579);
+            this._tableDead.Name = "_tableDead";
+            this._tableDead.RowCount = 1;
+            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this._tableDead.Size = new System.Drawing.Size(40, 40);
+            this._tableDead.TabIndex = 7;
             // 
-            // comboBox1
+            // _patternList
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1055, 697);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(296, 33);
-            this.comboBox1.TabIndex = 8;
+            this._patternList.FormattingEnabled = true;
+            this._patternList.Location = new System.Drawing.Point(1055, 697);
+            this._patternList.Name = "_patternList";
+            this._patternList.Size = new System.Drawing.Size(296, 33);
+            this._patternList.TabIndex = 8;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label2alive
+            // _label4
             // 
-            this.label2alive.AutoSize = true;
-            this.label2alive.Location = new System.Drawing.Point(1146, 536);
-            this.label2alive.Name = "label2alive";
-            this.label2alive.Size = new System.Drawing.Size(59, 25);
-            this.label2alive.TabIndex = 9;
-            this.label2alive.Text = "Alive";
+            this._label4.AutoSize = true;
+            this._label4.Location = new System.Drawing.Point(1146, 536);
+            this._label4.Name = "_label4";
+            this._label4.Size = new System.Drawing.Size(59, 25);
+            this._label4.TabIndex = 9;
+            this._label4.Text = "Alive";
             // 
-            // label3dead
+            // _label5
             // 
-            this.label3dead.AutoSize = true;
-            this.label3dead.Location = new System.Drawing.Point(1146, 594);
-            this.label3dead.Name = "label3dead";
-            this.label3dead.Size = new System.Drawing.Size(63, 25);
-            this.label3dead.TabIndex = 10;
-            this.label3dead.Text = "Dead";
+            this._label5.AutoSize = true;
+            this._label5.Location = new System.Drawing.Point(1146, 594);
+            this._label5.Name = "_label5";
+            this._label5.Size = new System.Drawing.Size(63, 25);
+            this._label5.TabIndex = 10;
+            this._label5.Text = "Dead";
             // 
-            // label4pattern
+            // _label6
             // 
-            this.label4pattern.AutoSize = true;
-            this.label4pattern.Location = new System.Drawing.Point(1136, 655);
-            this.label4pattern.Name = "label4pattern";
-            this.label4pattern.Size = new System.Drawing.Size(92, 25);
-            this.label4pattern.TabIndex = 11;
-            this.label4pattern.Text = "Patterns";
+            this._label6.AutoSize = true;
+            this._label6.Location = new System.Drawing.Point(1136, 655);
+            this._label6.Name = "_label6";
+            this._label6.Size = new System.Drawing.Size(92, 25);
+            this._label6.TabIndex = 11;
+            this._label6.Text = "Patterns";
             // 
-            // label5gc
+            // _label3
             // 
-            this.label5gc.AutoSize = true;
-            this.label5gc.Location = new System.Drawing.Point(1136, 350);
-            this.label5gc.Name = "label5gc";
-            this.label5gc.Size = new System.Drawing.Size(134, 25);
-            this.label5gc.TabIndex = 12;
-            this.label5gc.Text = "Gen Counter";
+            this._label3.AutoSize = true;
+            this._label3.Location = new System.Drawing.Point(1136, 350);
+            this._label3.Name = "_label3";
+            this._label3.Size = new System.Drawing.Size(134, 25);
+            this._label3.TabIndex = 12;
+            this._label3.Text = "Gen Counter";
             // 
-            // tb2gc
+            // _genCounter
             // 
-            this.tb2gc.Enabled = false;
-            this.tb2gc.Location = new System.Drawing.Point(1055, 396);
-            this.tb2gc.Name = "tb2gc";
-            this.tb2gc.Size = new System.Drawing.Size(296, 31);
-            this.tb2gc.TabIndex = 13;
-            this.tb2gc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this._genCounter.Enabled = false;
+            this._genCounter.Location = new System.Drawing.Point(1055, 396);
+            this._genCounter.Name = "_genCounter";
+            this._genCounter.Size = new System.Drawing.Size(296, 31);
+            this._genCounter.TabIndex = 13;
+            this._genCounter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btn4sp
+            // _savePattern
             // 
-            this.btn4sp.Location = new System.Drawing.Point(1055, 751);
-            this.btn4sp.Name = "btn4sp";
-            this.btn4sp.Size = new System.Drawing.Size(296, 55);
-            this.btn4sp.TabIndex = 14;
-            this.btn4sp.Text = "Save Pattern";
-            this.btn4sp.UseVisualStyleBackColor = true;
+            this._savePattern.Location = new System.Drawing.Point(1055, 751);
+            this._savePattern.Name = "_savePattern";
+            this._savePattern.Size = new System.Drawing.Size(296, 55);
+            this._savePattern.TabIndex = 14;
+            this._savePattern.Text = "Save Pattern";
+            this._savePattern.UseVisualStyleBackColor = true;
             // 
-            // btn5dp
+            // _deletePattern
             // 
-            this.btn5dp.Location = new System.Drawing.Point(1055, 823);
-            this.btn5dp.Name = "btn5dp";
-            this.btn5dp.Size = new System.Drawing.Size(296, 55);
-            this.btn5dp.TabIndex = 15;
-            this.btn5dp.Text = "Delete Pattern";
-            this.btn5dp.UseVisualStyleBackColor = true;
+            this._deletePattern.Location = new System.Drawing.Point(1055, 823);
+            this._deletePattern.Name = "_deletePattern";
+            this._deletePattern.Size = new System.Drawing.Size(296, 55);
+            this._deletePattern.TabIndex = 15;
+            this._deletePattern.Text = "Delete Pattern";
+            this._deletePattern.UseVisualStyleBackColor = true;
             // 
-            // label5stst
+            // _label2
             // 
-            this.label5stst.AutoSize = true;
-            this.label5stst.Location = new System.Drawing.Point(1136, 267);
-            this.label5stst.Name = "label5stst";
-            this.label5stst.Size = new System.Drawing.Size(119, 25);
-            this.label5stst.TabIndex = 17;
-            this.label5stst.Text = "Start / Stop";
+            this._label2.AutoSize = true;
+            this._label2.Location = new System.Drawing.Point(1136, 267);
+            this._label2.Name = "_label2";
+            this._label2.Size = new System.Drawing.Size(119, 25);
+            this._label2.TabIndex = 17;
+            this._label2.Text = "Start / Stop";
             // 
-            // cb1stst
+            // _startStopNextGen
             // 
-            this.cb1stst.AutoSize = true;
-            this.cb1stst.Location = new System.Drawing.Point(1177, 305);
-            this.cb1stst.Name = "cb1stst";
-            this.cb1stst.Size = new System.Drawing.Size(28, 27);
-            this.cb1stst.TabIndex = 18;
-            this.cb1stst.UseVisualStyleBackColor = true;
+            this._startStopNextGen.AutoSize = true;
+            this._startStopNextGen.Location = new System.Drawing.Point(1177, 305);
+            this._startStopNextGen.Name = "_startStopNextGen";
+            this._startStopNextGen.Size = new System.Drawing.Size(28, 27);
+            this._startStopNextGen.TabIndex = 18;
+            this._startStopNextGen.UseVisualStyleBackColor = true;
+            this._startStopNextGen.MouseClick += new System.Windows.Forms.MouseEventHandler(this._startStopNextGen_MouseClick);
             // 
-            // tb1di
+            // _dimensions
             // 
-            this.tb1di.Location = new System.Drawing.Point(1055, 73);
-            this.tb1di.Minimum = new decimal(new int[] {
+            this._dimensions.Location = new System.Drawing.Point(1055, 73);
+            this._dimensions.Minimum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.tb1di.Name = "tb1di";
-            this.tb1di.Size = new System.Drawing.Size(296, 31);
-            this.tb1di.TabIndex = 19;
-            this.tb1di.Value = new decimal(new int[] {
+            this._dimensions.Name = "_dimensions";
+            this._dimensions.Size = new System.Drawing.Size(296, 31);
+            this._dimensions.TabIndex = 19;
+            this._dimensions.Value = new decimal(new int[] {
             10,
             0,
             0,
             0});
             // 
-            // Form1
+            // _myTimer
+            // 
+            this._myTimer.Interval = 500;
+            this._myTimer.Tick += new System.EventHandler(this._myTimer_Tick);
+            // 
+            // _Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1374, 1029);
-            this.Controls.Add(this.tb1di);
-            this.Controls.Add(this.cb1stst);
-            this.Controls.Add(this.label5stst);
-            this.Controls.Add(this.btn5dp);
-            this.Controls.Add(this.btn4sp);
-            this.Controls.Add(this.tb2gc);
-            this.Controls.Add(this.label5gc);
-            this.Controls.Add(this.label4pattern);
-            this.Controls.Add(this.label3dead);
-            this.Controls.Add(this.label2alive);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.btn3pg);
-            this.Controls.Add(this.btn2ng);
-            this.Controls.Add(this.btn1draw);
-            this.Controls.Add(this.label1di);
-            this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Controls.Add(this._dimensions);
+            this.Controls.Add(this._startStopNextGen);
+            this.Controls.Add(this._label2);
+            this.Controls.Add(this._deletePattern);
+            this.Controls.Add(this._savePattern);
+            this.Controls.Add(this._genCounter);
+            this.Controls.Add(this._label3);
+            this.Controls.Add(this._label6);
+            this.Controls.Add(this._label5);
+            this.Controls.Add(this._label4);
+            this.Controls.Add(this._patternList);
+            this.Controls.Add(this._tableDead);
+            this.Controls.Add(this._tableAlive);
+            this.Controls.Add(this._previousGen);
+            this.Controls.Add(this._nextGen);
+            this.Controls.Add(this._drawGrid);
+            this.Controls.Add(this._label1);
+            this.Controls.Add(this._mainBoard);
+            this.Name = "_Window";
             this.Text = "Zellenformation";
-            this.Shown += new System.EventHandler(this.Form1_Shown);
+            this.Shown += new System.EventHandler(this._Window_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb1di)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._dimensions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,25 +275,26 @@
 
         #endregion
 
-        public System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1di;
-        private System.Windows.Forms.Button btn1draw;
-        private System.Windows.Forms.Button btn2ng;
-        private System.Windows.Forms.Button btn3pg;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        public System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.Panel _mainBoard;
+        private System.Windows.Forms.Label _label1;
+        private System.Windows.Forms.Button _drawGrid;
+        private System.Windows.Forms.Button _nextGen;
+        private System.Windows.Forms.Button _previousGen;
+        private System.Windows.Forms.TableLayoutPanel _tableAlive;
+        private System.Windows.Forms.TableLayoutPanel _tableDead;
+        public System.Windows.Forms.ComboBox _patternList;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button btn5dp;
-        private System.Windows.Forms.Button btn4sp;
-        public System.Windows.Forms.TextBox tb2gc;
-        private System.Windows.Forms.Label label5gc;
-        private System.Windows.Forms.Label label4pattern;
-        private System.Windows.Forms.Label label3dead;
-        private System.Windows.Forms.Label label2alive;
-        public System.Windows.Forms.CheckBox cb1stst;
-        private System.Windows.Forms.Label label5stst;
-        private System.Windows.Forms.NumericUpDown tb1di;
+        private System.Windows.Forms.Button _deletePattern;
+        private System.Windows.Forms.Button _savePattern;
+        public System.Windows.Forms.TextBox _genCounter;
+        private System.Windows.Forms.Label _label3;
+        private System.Windows.Forms.Label _label6;
+        private System.Windows.Forms.Label _label5;
+        private System.Windows.Forms.Label _label4;
+        public System.Windows.Forms.CheckBox _startStopNextGen;
+        private System.Windows.Forms.Label _label2;
+        private System.Windows.Forms.NumericUpDown _dimensions;
+        private System.Windows.Forms.Timer _myTimer;
     }
 }
 
