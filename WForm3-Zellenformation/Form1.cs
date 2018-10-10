@@ -108,6 +108,8 @@ namespace WForm3_Zellenformation
                     }
                 }
             }
+            var GenerationCounter = Convert.ToString(_board._genNum);
+            _genCounter.Text = GenerationCounter;
 
         }
 
@@ -116,8 +118,6 @@ namespace WForm3_Zellenformation
             _genCounter.Text = string.Empty;
             _board.CalcNextGen();
             DrawGrid();
-            var GenerationCounter = Convert.ToString(_board._genNum);
-            _genCounter.AppendText(GenerationCounter);
         }
 
         private void _startStopNextGen_MouseClick(object sender, MouseEventArgs e)
@@ -139,11 +139,8 @@ namespace WForm3_Zellenformation
         {
             if(_myTimer.Enabled == true)
             {
-                _genCounter.Text = string.Empty;
                 _board.CalcNextGen();
                 DrawGrid();
-                var GenerationCounter = Convert.ToString(_board._genNum);
-                _genCounter.AppendText(GenerationCounter);
             }
         }
 
@@ -163,10 +160,11 @@ namespace WForm3_Zellenformation
 
         private void _Window_Load(object sender, EventArgs e)
         {
-            string[] files = System.IO.Directory.GetFiles(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles");
-            
+            var folder = new System.IO.DirectoryInfo(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles");
+            var files = folder.GetFiles();
 
-            this._patternList.Items.AddRange(files);
+            var filenNames = files.Select(f => f.Name).ToArray();
+            this._patternList.Items.AddRange(filenNames);
         }
     }
 }

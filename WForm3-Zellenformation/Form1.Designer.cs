@@ -266,7 +266,6 @@
             this.Controls.Add(this._mainBoard);
             this.Name = "_Window";
             this.Text = "Zellenformation";
-            this.Load += new System.EventHandler(this._Window_Load);
             this.Shown += new System.EventHandler(this._Window_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._dimensions)).EndInit();
