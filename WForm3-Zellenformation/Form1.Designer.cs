@@ -104,11 +104,11 @@
             this._tableAlive.BackColor = System.Drawing.Color.LawnGreen;
             this._tableAlive.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableAlive.ColumnCount = 1;
-            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this._tableAlive.Location = new System.Drawing.Point(1055, 521);
             this._tableAlive.Name = "_tableAlive";
             this._tableAlive.RowCount = 1;
-            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this._tableAlive.Size = new System.Drawing.Size(40, 40);
             this._tableAlive.TabIndex = 6;
             // 
@@ -116,11 +116,11 @@
             // 
             this._tableDead.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableDead.ColumnCount = 1;
-            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this._tableDead.Location = new System.Drawing.Point(1055, 579);
             this._tableDead.Name = "_tableDead";
             this._tableDead.RowCount = 1;
-            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
             this._tableDead.Size = new System.Drawing.Size(40, 40);
             this._tableDead.TabIndex = 7;
             // 
@@ -189,6 +189,7 @@
             this._savePattern.TabIndex = 14;
             this._savePattern.Text = "Save Pattern";
             this._savePattern.UseVisualStyleBackColor = true;
+            this._savePattern.Click += new System.EventHandler(this._savePattern_Click);
             // 
             // _deletePattern
             // 

@@ -43,8 +43,6 @@ namespace UnitTest
         {
             //arrange
             var board = new Board(10);
-
-            //act
             board.SetCellValue(4, 3, true);
 
             //assert

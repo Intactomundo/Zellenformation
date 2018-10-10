@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -145,6 +146,22 @@ namespace WForm3_Zellenformation
                 _genCounter.AppendText(GenerationCounter);
             }
         }
+
+        private void _savePattern_Click(object sender, EventArgs e)
+        {
+            Convert.ToString(_board._board);
+            List<string> linesToWrite = new List<string>();
+            for (int rowIndex = 0; rowIndex < _board._size; rowIndex++)
+            {
+                StringBuilder line = new StringBuilder();
+                for (int colIndex = 0; colIndex < _board._size; colIndex++)
+                    line.Append(_board._board[rowIndex, colIndex]).Append("; ");
+                linesToWrite.Add(line.ToString());
+            }
+
+            System.IO.File.WriteAllLines("C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text + ".txt", linesToWrite.ToArray());
+        }
+
     }
 }
 
