@@ -51,6 +51,8 @@
             this._myTimer = new System.Windows.Forms.Timer(this.components);
             this._loadPattern = new System.Windows.Forms.Button();
             this._patterListTimer = new System.Windows.Forms.Timer(this.components);
+            this._label7 = new System.Windows.Forms.Label();
+            this._livingCellCounter = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._dimensions)).BeginInit();
             this.SuspendLayout();
@@ -94,7 +96,7 @@
             // 
             // _previousGen
             // 
-            this._previousGen.Location = new System.Drawing.Point(1055, 444);
+            this._previousGen.Location = new System.Drawing.Point(1055, 509);
             this._previousGen.Name = "_previousGen";
             this._previousGen.Size = new System.Drawing.Size(296, 55);
             this._previousGen.TabIndex = 5;
@@ -107,7 +109,7 @@
             this._tableAlive.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableAlive.ColumnCount = 1;
             this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this._tableAlive.Location = new System.Drawing.Point(1055, 521);
+            this._tableAlive.Location = new System.Drawing.Point(1055, 586);
             this._tableAlive.Name = "_tableAlive";
             this._tableAlive.RowCount = 1;
             this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -119,7 +121,7 @@
             this._tableDead.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableDead.ColumnCount = 1;
             this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this._tableDead.Location = new System.Drawing.Point(1055, 579);
+            this._tableDead.Location = new System.Drawing.Point(1055, 644);
             this._tableDead.Name = "_tableDead";
             this._tableDead.RowCount = 1;
             this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
@@ -129,7 +131,7 @@
             // _patternList
             // 
             this._patternList.FormattingEnabled = true;
-            this._patternList.Location = new System.Drawing.Point(1055, 697);
+            this._patternList.Location = new System.Drawing.Point(1055, 762);
             this._patternList.Name = "_patternList";
             this._patternList.Size = new System.Drawing.Size(296, 33);
             this._patternList.TabIndex = 8;
@@ -141,7 +143,7 @@
             // _label4
             // 
             this._label4.AutoSize = true;
-            this._label4.Location = new System.Drawing.Point(1146, 536);
+            this._label4.Location = new System.Drawing.Point(1146, 601);
             this._label4.Name = "_label4";
             this._label4.Size = new System.Drawing.Size(59, 25);
             this._label4.TabIndex = 9;
@@ -150,7 +152,7 @@
             // _label5
             // 
             this._label5.AutoSize = true;
-            this._label5.Location = new System.Drawing.Point(1146, 594);
+            this._label5.Location = new System.Drawing.Point(1146, 659);
             this._label5.Name = "_label5";
             this._label5.Size = new System.Drawing.Size(63, 25);
             this._label5.TabIndex = 10;
@@ -159,7 +161,7 @@
             // _label6
             // 
             this._label6.AutoSize = true;
-            this._label6.Location = new System.Drawing.Point(1136, 655);
+            this._label6.Location = new System.Drawing.Point(1148, 720);
             this._label6.Name = "_label6";
             this._label6.Size = new System.Drawing.Size(92, 25);
             this._label6.TabIndex = 11;
@@ -177,7 +179,7 @@
             // _genCounter
             // 
             this._genCounter.Enabled = false;
-            this._genCounter.Location = new System.Drawing.Point(1055, 396);
+            this._genCounter.Location = new System.Drawing.Point(1055, 378);
             this._genCounter.Name = "_genCounter";
             this._genCounter.Size = new System.Drawing.Size(296, 31);
             this._genCounter.TabIndex = 13;
@@ -185,7 +187,7 @@
             // 
             // _savePattern
             // 
-            this._savePattern.Location = new System.Drawing.Point(1055, 751);
+            this._savePattern.Location = new System.Drawing.Point(1055, 816);
             this._savePattern.Name = "_savePattern";
             this._savePattern.Size = new System.Drawing.Size(296, 55);
             this._savePattern.TabIndex = 14;
@@ -195,7 +197,7 @@
             // 
             // _deletePattern
             // 
-            this._deletePattern.Location = new System.Drawing.Point(1055, 823);
+            this._deletePattern.Location = new System.Drawing.Point(1055, 888);
             this._deletePattern.Name = "_deletePattern";
             this._deletePattern.Size = new System.Drawing.Size(296, 55);
             this._deletePattern.TabIndex = 15;
@@ -246,7 +248,7 @@
             // 
             // _loadPattern
             // 
-            this._loadPattern.Location = new System.Drawing.Point(1055, 896);
+            this._loadPattern.Location = new System.Drawing.Point(1055, 961);
             this._loadPattern.Name = "_loadPattern";
             this._loadPattern.Size = new System.Drawing.Size(296, 55);
             this._loadPattern.TabIndex = 20;
@@ -260,6 +262,24 @@
             this._patterListTimer.Interval = 1000;
             this._patterListTimer.Tick += new System.EventHandler(this._patterListTimer_Tick);
             // 
+            // _label7
+            // 
+            this._label7.AutoSize = true;
+            this._label7.Location = new System.Drawing.Point(1093, 426);
+            this._label7.Name = "_label7";
+            this._label7.Size = new System.Drawing.Size(228, 25);
+            this._label7.TabIndex = 12;
+            this._label7.Text = "Number of Living Cells";
+            // 
+            // _livingCellCounter
+            // 
+            this._livingCellCounter.Enabled = false;
+            this._livingCellCounter.Location = new System.Drawing.Point(1055, 463);
+            this._livingCellCounter.Name = "_livingCellCounter";
+            this._livingCellCounter.Size = new System.Drawing.Size(296, 31);
+            this._livingCellCounter.TabIndex = 13;
+            this._livingCellCounter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // _Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -271,6 +291,8 @@
             this.Controls.Add(this._label2);
             this.Controls.Add(this._deletePattern);
             this.Controls.Add(this._savePattern);
+            this.Controls.Add(this._livingCellCounter);
+            this.Controls.Add(this._label7);
             this.Controls.Add(this._genCounter);
             this.Controls.Add(this._label3);
             this.Controls.Add(this._label6);
@@ -319,6 +341,8 @@
         private System.Windows.Forms.Timer _myTimer;
         private System.Windows.Forms.Button _loadPattern;
         private System.Windows.Forms.Timer _patterListTimer;
+        public System.Windows.Forms.TextBox _livingCellCounter;
+        private System.Windows.Forms.Label _label7;
     }
 }
 

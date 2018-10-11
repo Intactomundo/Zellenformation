@@ -16,7 +16,6 @@ namespace WForm3_Zellenformation
         public int _size { get; set; }
         public int _genNum { get; set; }
 
-
         public bool[,] _board;
 
         public Board(int size)

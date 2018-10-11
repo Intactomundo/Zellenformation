@@ -108,6 +108,9 @@ namespace WForm3_Zellenformation
                     }
                 }
             }
+            int livingCellsNum = _board.CountCells(true);
+            var lCNText = Convert.ToString(livingCellsNum);
+            _livingCellCounter.Text = lCNText;
             var GenerationCounter = Convert.ToString(_board._genNum);
             _genCounter.Text = GenerationCounter;
 
