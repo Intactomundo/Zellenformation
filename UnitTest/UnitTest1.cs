@@ -275,5 +275,10 @@ namespace UnitTest
             //assert
             Assert.AreEqual(22, board.CountCells(false));
         }
+        [TestMethod]
+        public void asdf()
+        {
+
+        }
     }
 }

@@ -29,6 +29,7 @@ namespace WForm3_Zellenformation
         {
             _board = new Board(Convert.ToInt32(_dimensions.Text));
             DrawGrid();
+            UpdatePatternList();
         }
         public void _mainBoard_MouseClick(object sender, MouseEventArgs e)
         {
@@ -164,10 +165,12 @@ namespace WForm3_Zellenformation
                 }
             }
             System.IO.File.WriteAllText("C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text + ".txt", line.ToString());
+            UpdatePatternList();
         }
 
-        private void _Window_Load_1(object sender, EventArgs e)
+        private void UpdatePatternList()
         {
+            _patternList.Items.Clear();
             var folder = new System.IO.DirectoryInfo(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles");
             var files = folder.GetFiles();
 
@@ -191,12 +194,7 @@ namespace WForm3_Zellenformation
         private void _deletePattern_Click(object sender, EventArgs e)
         {
             File.Delete(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text);
-        }
-
-        private void _patterListTimer_Tick(object sender, EventArgs e)
-        {
-            _patternList.Items.Clear();
-            _Window_Load_1(sender, e);
+            UpdatePatternList();
         }
     }
 }
