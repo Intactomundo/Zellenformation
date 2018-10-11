@@ -189,6 +189,12 @@ namespace WForm3_Zellenformation
         {
             File.Delete(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text);
         }
+
+        private void _patterListTimer_Tick(object sender, EventArgs e)
+        {
+            _patternList.Items.Clear();
+            _Window_Load_1(sender, e);
+        }
     }
 }
 
