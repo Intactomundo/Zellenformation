@@ -49,6 +49,7 @@
             this._startStopNextGen = new System.Windows.Forms.CheckBox();
             this._dimensions = new System.Windows.Forms.NumericUpDown();
             this._myTimer = new System.Windows.Forms.Timer(this.components);
+            this._loadPattern = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._dimensions)).BeginInit();
             this.SuspendLayout();
@@ -104,11 +105,11 @@
             this._tableAlive.BackColor = System.Drawing.Color.LawnGreen;
             this._tableAlive.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableAlive.ColumnCount = 1;
-            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this._tableAlive.Location = new System.Drawing.Point(1055, 521);
             this._tableAlive.Name = "_tableAlive";
             this._tableAlive.RowCount = 1;
-            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this._tableAlive.Size = new System.Drawing.Size(40, 40);
             this._tableAlive.TabIndex = 6;
             // 
@@ -116,11 +117,11 @@
             // 
             this._tableDead.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableDead.ColumnCount = 1;
-            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this._tableDead.Location = new System.Drawing.Point(1055, 579);
             this._tableDead.Name = "_tableDead";
             this._tableDead.RowCount = 1;
-            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 78F));
             this._tableDead.Size = new System.Drawing.Size(40, 40);
             this._tableDead.TabIndex = 7;
             // 
@@ -199,6 +200,7 @@
             this._deletePattern.TabIndex = 15;
             this._deletePattern.Text = "Delete Pattern";
             this._deletePattern.UseVisualStyleBackColor = true;
+            this._deletePattern.Click += new System.EventHandler(this._deletePattern_Click);
             // 
             // _label2
             // 
@@ -241,11 +243,22 @@
             this._myTimer.Interval = 500;
             this._myTimer.Tick += new System.EventHandler(this._myTimer_Tick);
             // 
+            // _loadPattern
+            // 
+            this._loadPattern.Location = new System.Drawing.Point(1055, 896);
+            this._loadPattern.Name = "_loadPattern";
+            this._loadPattern.Size = new System.Drawing.Size(296, 55);
+            this._loadPattern.TabIndex = 20;
+            this._loadPattern.Text = "Load Pattern";
+            this._loadPattern.UseVisualStyleBackColor = true;
+            this._loadPattern.Click += new System.EventHandler(this._loadPattern_Click);
+            // 
             // _Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1374, 1029);
+            this.Controls.Add(this._loadPattern);
             this.Controls.Add(this._dimensions);
             this.Controls.Add(this._startStopNextGen);
             this.Controls.Add(this._label2);
@@ -266,6 +279,7 @@
             this.Controls.Add(this._mainBoard);
             this.Name = "_Window";
             this.Text = "Zellenformation";
+            this.Load += new System.EventHandler(this._Window_Load_1);
             this.Shown += new System.EventHandler(this._Window_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._dimensions)).EndInit();
@@ -296,6 +310,7 @@
         private System.Windows.Forms.Label _label2;
         private System.Windows.Forms.NumericUpDown _dimensions;
         private System.Windows.Forms.Timer _myTimer;
+        private System.Windows.Forms.Button _loadPattern;
     }
 }
 

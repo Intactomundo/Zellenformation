@@ -131,13 +131,15 @@ namespace WForm3_Zellenformation
                 _myTimer.Enabled = false;
             }
         }
+
         private void InitializeMyTimer()
         {
             _myTimer.Tick += new EventHandler(_myTimer_Tick);
         }
+
         private void _myTimer_Tick(object sender, EventArgs e)
         {
-            if(_myTimer.Enabled == true)
+            if (_myTimer.Enabled == true)
             {
                 _board.CalcNextGen();
                 DrawGrid();
@@ -146,25 +148,46 @@ namespace WForm3_Zellenformation
 
         private void _savePattern_Click(object sender, EventArgs e)
         {
-            Convert.ToString(_board._board);
-            List<string> linesToWrite = new List<string>();
-            for (int rowIndex = 0; rowIndex < _board._size; rowIndex++)
+            StringBuilder line = new StringBuilder();
+            for (int i = 0; i < _board._size; i++)
             {
-                StringBuilder line = new StringBuilder();
-                for (int colIndex = 0; colIndex < _board._size; colIndex++)
-                    line.Append(_board._board[rowIndex, colIndex]).Append("; ");
-                linesToWrite.Add(line.ToString());
+                for (int j = 0; j < _board._size; j++)
+                {
+                    _board.GetCellValue(i, j);
+                    if (_board.GetCellValue(i, j) == true)
+                    {
+                        line.Append($"{i},{j};");
+                    }
+                }
             }
-            System.IO.File.WriteAllLines("C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text + ".txt", linesToWrite.ToArray());
+            System.IO.File.WriteAllText("C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text + ".txt", line.ToString());
         }
 
-        private void _Window_Load(object sender, EventArgs e)
+        private void _Window_Load_1(object sender, EventArgs e)
         {
             var folder = new System.IO.DirectoryInfo(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles");
             var files = folder.GetFiles();
 
             var filenNames = files.Select(f => f.Name).ToArray();
             this._patternList.Items.AddRange(filenNames);
+        }
+        private void _loadPattern_Click(object sender, EventArgs e)
+        {
+            _board.Clear();
+            string[] lines = System.IO.File.ReadAllLines(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text);
+            var cellStrings = lines[0].Split(";".ToCharArray());
+            for (int i = 0; i < cellStrings.Length - 1; i++)
+            {
+                var splitCellStrings = cellStrings[i].Split(",".ToCharArray());
+                var row = Convert.ToInt32(splitCellStrings[0]);
+                var column = Convert.ToInt32(splitCellStrings[1]);
+                _board.SetCellValue(row, column, true);
+            }
+            DrawGrid();
+        }
+        private void _deletePattern_Click(object sender, EventArgs e)
+        {
+            File.Delete(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text);
         }
     }
 }
