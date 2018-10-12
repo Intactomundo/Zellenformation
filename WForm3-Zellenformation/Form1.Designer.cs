@@ -79,7 +79,7 @@
             this._drawGrid.Name = "_drawGrid";
             this._drawGrid.Size = new System.Drawing.Size(296, 55);
             this._drawGrid.TabIndex = 3;
-            this._drawGrid.Text = "Clear";
+            this._drawGrid.Text = "Clear Grid";
             this._drawGrid.UseVisualStyleBackColor = true;
             this._drawGrid.Click += new System.EventHandler(this.DrawGrid_Click);
             // 
@@ -108,11 +108,11 @@
             this._tableAlive.BackColor = System.Drawing.Color.LawnGreen;
             this._tableAlive.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableAlive.ColumnCount = 1;
-            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this._tableAlive.Location = new System.Drawing.Point(1055, 586);
             this._tableAlive.Name = "_tableAlive";
             this._tableAlive.RowCount = 1;
-            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this._tableAlive.Size = new System.Drawing.Size(40, 40);
             this._tableAlive.TabIndex = 6;
             // 
@@ -120,11 +120,11 @@
             // 
             this._tableDead.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableDead.ColumnCount = 1;
-            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this._tableDead.Location = new System.Drawing.Point(1055, 644);
             this._tableDead.Name = "_tableDead";
             this._tableDead.RowCount = 1;
-            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this._tableDead.Size = new System.Drawing.Size(40, 40);
             this._tableDead.TabIndex = 7;
             // 
@@ -274,7 +274,7 @@
             this._livingCellCounter.TabIndex = 13;
             this._livingCellCounter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // _Window
+            // Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -300,7 +300,7 @@
             this.Controls.Add(this._drawGrid);
             this.Controls.Add(this._label1);
             this.Controls.Add(this._mainBoard);
-            this.Name = "_Window";
+            this.Name = "Window";
             this.Text = "Zellenformation";
             this.Shown += new System.EventHandler(this.Window_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

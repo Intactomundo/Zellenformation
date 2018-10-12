@@ -72,7 +72,6 @@ namespace WForm3_Zellenformation
             g.Clear(Color.WhiteSmoke);
             _board.Clear();
             DrawGrid();
-
         }
 
         private void DrawGrid()
@@ -195,18 +194,25 @@ namespace WForm3_Zellenformation
         private void LoadPattern_Click(object sender, EventArgs e)
         {
             _board.Clear();
-
-            string[] lines = System.IO.File.ReadAllLines(patternPath + "\\" + _patternList.Text);
-            var cellStrings = lines[0].Split(";".ToCharArray());
-            for (int i = 0; i < cellStrings.Length - 1; i++)
+            if ( new System.IO.FileInfo(patternPath + "\\" + _patternList.Text).Length == 0)
             {
-                var splitCellStrings = cellStrings[i].Split(",".ToCharArray());
-                var row = Convert.ToInt32(splitCellStrings[0]);
-                var column = Convert.ToInt32(splitCellStrings[1]);
-                _board.SetCellValue(row, column, true);
+                DrawGrid();
             }
+            else
+            {
+                string[] lines = System.IO.File.ReadAllLines(patternPath + "\\" + _patternList.Text);
 
-            DrawGrid();
+                var cellStrings = lines[0].Split(";".ToCharArray());
+                for (int i = 0; i < cellStrings.Length - 1; i++)
+                {
+                    var splitCellStrings = cellStrings[i].Split(",".ToCharArray());
+                    var row = Convert.ToInt32(splitCellStrings[0]);
+                    var column = Convert.ToInt32(splitCellStrings[1]);
+                    _board.SetCellValue(row, column, true);
+                }
+
+                DrawGrid();
+            }
         }
 
         private void DeletePattern_Click(object sender, EventArgs e)
