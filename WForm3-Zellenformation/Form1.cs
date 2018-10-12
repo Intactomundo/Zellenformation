@@ -194,30 +194,59 @@ namespace WForm3_Zellenformation
         private void LoadPattern_Click(object sender, EventArgs e)
         {
             _board.Clear();
+            DrawGrid();
             if ( new System.IO.FileInfo(patternPath + "\\" + _patternList.Text).Length == 0)
             {
                 DrawGrid();
+                MessageBox.Show("There was no data inside this .txt File.",
+                "Failure Message");
+            }
+            else if (_patternList.Text == string.Empty)
+            {
+                DrawGrid();
+                MessageBox.Show("You need to name the Textfile you want to load.",
+                "Failure Message");
             }
             else
             {
                 string[] lines = System.IO.File.ReadAllLines(patternPath + "\\" + _patternList.Text);
 
                 var cellStrings = lines[0].Split(";".ToCharArray());
-                for (int i = 0; i < cellStrings.Length - 1; i++)
+                for (int i = 0; i < cellStrings.Length; i++)
                 {
-                    var splitCellStrings = cellStrings[i].Split(",".ToCharArray());
-                    var row = Convert.ToInt32(splitCellStrings[0]);
-                    var column = Convert.ToInt32(splitCellStrings[1]);
-                    _board.SetCellValue(row, column, true);
+                    if (cellStrings[i] != string.Empty)
+                    {
+                        var splitCellStrings = cellStrings[i].Split(",".ToCharArray());
+                        int row;
+                        int column;
+                        if (int.TryParse(splitCellStrings[0], out row) && int.TryParse(splitCellStrings[1], out column))
+                        {
+                            _board.SetCellValue(row, column, true);
+                        }
+                        else
+                        {
+                            MessageBox.Show("There is wrong data inside the .txt File",
+                            "Failure Message");
+                            return;
+                        }
+                    }
                 }
-
                 DrawGrid();
             }
         }
 
         private void DeletePattern_Click(object sender, EventArgs e)
         {
-            File.Delete(patternPath + "\\" + _patternList.Text);
+            if (File.Exists(patternPath + "\\" + _patternList.Text))
+            {
+                File.Delete(patternPath + "\\" + _patternList.Text);
+            }
+            else
+            {
+                DrawGrid();
+                MessageBox.Show("No file with such name exists in this directory.",
+                "Failure Message");
+            }
             UpdatePatternList();
         }
     }

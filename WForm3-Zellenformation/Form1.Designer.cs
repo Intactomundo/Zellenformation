@@ -108,11 +108,11 @@
             this._tableAlive.BackColor = System.Drawing.Color.LawnGreen;
             this._tableAlive.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableAlive.ColumnCount = 1;
-            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this._tableAlive.Location = new System.Drawing.Point(1055, 586);
             this._tableAlive.Name = "_tableAlive";
             this._tableAlive.RowCount = 1;
-            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this._tableAlive.Size = new System.Drawing.Size(40, 40);
             this._tableAlive.TabIndex = 6;
             // 
@@ -120,11 +120,11 @@
             // 
             this._tableDead.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableDead.ColumnCount = 1;
-            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this._tableDead.Location = new System.Drawing.Point(1055, 644);
             this._tableDead.Name = "_tableDead";
             this._tableDead.RowCount = 1;
-            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this._tableDead.Size = new System.Drawing.Size(40, 40);
             this._tableDead.TabIndex = 7;
             // 
@@ -197,7 +197,7 @@
             // 
             // _deletePattern
             // 
-            this._deletePattern.Location = new System.Drawing.Point(1055, 880);
+            this._deletePattern.Location = new System.Drawing.Point(1055, 962);
             this._deletePattern.Name = "_deletePattern";
             this._deletePattern.Size = new System.Drawing.Size(296, 55);
             this._deletePattern.TabIndex = 15;
@@ -248,7 +248,7 @@
             // 
             // _loadPattern
             // 
-            this._loadPattern.Location = new System.Drawing.Point(1055, 952);
+            this._loadPattern.Location = new System.Drawing.Point(1055, 888);
             this._loadPattern.Name = "_loadPattern";
             this._loadPattern.Size = new System.Drawing.Size(296, 55);
             this._loadPattern.TabIndex = 20;
