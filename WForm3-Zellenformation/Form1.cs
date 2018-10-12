@@ -164,14 +164,14 @@ namespace WForm3_Zellenformation
                     }
                 }
             }
-            System.IO.File.WriteAllText("C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text + ".txt", line.ToString());
+            System.IO.File.WriteAllText(".\\..\\TextFiles\\" + _patternList.Text + ".txt", line.ToString());
             UpdatePatternList();
         }
 
         private void UpdatePatternList()
         {
             _patternList.Items.Clear();
-            var folder = new System.IO.DirectoryInfo(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles");
+            var folder = new System.IO.DirectoryInfo(@".\\..\\TextFiles");
             var files = folder.GetFiles();
 
             var filenNames = files.Select(f => f.Name).ToArray();
@@ -180,7 +180,7 @@ namespace WForm3_Zellenformation
         private void _loadPattern_Click(object sender, EventArgs e)
         {
             _board.Clear();
-            string[] lines = System.IO.File.ReadAllLines(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text);
+            string[] lines = System.IO.File.ReadAllLines(@".\\..\\TextFiles\\" + _patternList.Text);
             var cellStrings = lines[0].Split(";".ToCharArray());
             for (int i = 0; i < cellStrings.Length - 1; i++)
             {
@@ -193,7 +193,7 @@ namespace WForm3_Zellenformation
         }
         private void _deletePattern_Click(object sender, EventArgs e)
         {
-            File.Delete(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text);
+            File.Delete(@".\\..\\TextFiles\\" + _patternList.Text);
             UpdatePatternList();
         }
     }
