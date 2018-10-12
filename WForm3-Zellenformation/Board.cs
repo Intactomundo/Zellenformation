@@ -35,10 +35,12 @@ namespace WForm3_Zellenformation
                 return _board[row, column];
             }
         }
+
         public void SetCellValue (int row, int column, bool value)
         {
             _board[row, column] = value;
         }
+
         public void Clear()
         {
             for (int i = 0; i < _size; i++)
@@ -49,6 +51,7 @@ namespace WForm3_Zellenformation
                 }
             }
         }
+
         private int CalcNeighbourCount(int row, int column)
         {
             int count = 0;
@@ -58,36 +61,43 @@ namespace WForm3_Zellenformation
             {
                 count++;
             }
+
             // Cell on the bottom right of the Cells
             if (GetCellValue(row + 1, column + 1) == true)
             {
                 count++;
             }
+
             // Cell on the bottom of the Cells
             if (GetCellValue(row + 1, column) == true)
             {
                 count++;
             }
+
             // Cells on the bottom left of the Cells
             if (GetCellValue(row + 1, column - 1) == true)
             {
                 count++;
             }
+
             // Cells on the left of the Cells
             if (GetCellValue(row, column - 1) == true)
             {
                 count++;
             }
+
             // Cells on the top left of the Cells
             if (GetCellValue(row - 1, column - 1) == true)
             {
                 count++;
             }
+
             // Cells on the top of the Cells
             if (GetCellValue(row - 1, column) == true)
             {
                 count++;
             }
+
             // Cells on the top right of the Cells
             if (GetCellValue(row - 1, column + 1) == true)
             {
@@ -96,9 +106,11 @@ namespace WForm3_Zellenformation
 
             return count;
         }
+
         public void CalcNextGen()
         {
             bool[,] nextGenBoard = new bool[_size, _size];
+
             for (int i = 0; i < _size; i++)
             {
                 for (int j = 0; j < _size; j++)
@@ -125,6 +137,7 @@ namespace WForm3_Zellenformation
         public int CountCells(bool value)
         {
             int cellsCount = 0;
+
             for (int i = 0; i < _size; i++)
             {
                 for (int j = 0; j < _size; j++)

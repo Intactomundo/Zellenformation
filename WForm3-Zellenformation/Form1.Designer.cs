@@ -1,6 +1,6 @@
 ﻿namespace WForm3_Zellenformation
 {
-    partial class _Window
+    partial class Window
     {
         /// <summary>
         /// Required designer variable.
@@ -62,7 +62,7 @@
             this._mainBoard.Name = "_mainBoard";
             this._mainBoard.Size = new System.Drawing.Size(1002, 1002);
             this._mainBoard.TabIndex = 0;
-            this._mainBoard.MouseClick += new System.Windows.Forms.MouseEventHandler(this._mainBoard_MouseClick);
+            this._mainBoard.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MainBoard_MouseClick);
             // 
             // _label1
             // 
@@ -79,9 +79,9 @@
             this._drawGrid.Name = "_drawGrid";
             this._drawGrid.Size = new System.Drawing.Size(296, 55);
             this._drawGrid.TabIndex = 3;
-            this._drawGrid.Text = "Draw Grid";
+            this._drawGrid.Text = "Clear";
             this._drawGrid.UseVisualStyleBackColor = true;
-            this._drawGrid.Click += new System.EventHandler(this._drawGrid_Click);
+            this._drawGrid.Click += new System.EventHandler(this.DrawGrid_Click);
             // 
             // _nextGen
             // 
@@ -91,10 +91,11 @@
             this._nextGen.TabIndex = 4;
             this._nextGen.Text = "Next Gen";
             this._nextGen.UseVisualStyleBackColor = true;
-            this._nextGen.Click += new System.EventHandler(this._nextGen_Click);
+            this._nextGen.Click += new System.EventHandler(this.NextGen_Click);
             // 
             // _previousGen
             // 
+            this._previousGen.Enabled = false;
             this._previousGen.Location = new System.Drawing.Point(1055, 509);
             this._previousGen.Name = "_previousGen";
             this._previousGen.Size = new System.Drawing.Size(296, 55);
@@ -107,11 +108,11 @@
             this._tableAlive.BackColor = System.Drawing.Color.LawnGreen;
             this._tableAlive.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableAlive.ColumnCount = 1;
-            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this._tableAlive.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this._tableAlive.Location = new System.Drawing.Point(1055, 586);
             this._tableAlive.Name = "_tableAlive";
             this._tableAlive.RowCount = 1;
-            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this._tableAlive.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this._tableAlive.Size = new System.Drawing.Size(40, 40);
             this._tableAlive.TabIndex = 6;
             // 
@@ -119,18 +120,18 @@
             // 
             this._tableDead.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset;
             this._tableDead.ColumnCount = 1;
-            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this._tableDead.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this._tableDead.Location = new System.Drawing.Point(1055, 644);
             this._tableDead.Name = "_tableDead";
             this._tableDead.RowCount = 1;
-            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this._tableDead.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
             this._tableDead.Size = new System.Drawing.Size(40, 40);
             this._tableDead.TabIndex = 7;
             // 
             // _patternList
             // 
             this._patternList.FormattingEnabled = true;
-            this._patternList.Location = new System.Drawing.Point(1055, 762);
+            this._patternList.Location = new System.Drawing.Point(1055, 751);
             this._patternList.Name = "_patternList";
             this._patternList.Size = new System.Drawing.Size(296, 33);
             this._patternList.TabIndex = 8;
@@ -160,7 +161,7 @@
             // _label6
             // 
             this._label6.AutoSize = true;
-            this._label6.Location = new System.Drawing.Point(1148, 720);
+            this._label6.Location = new System.Drawing.Point(1148, 714);
             this._label6.Name = "_label6";
             this._label6.Size = new System.Drawing.Size(92, 25);
             this._label6.TabIndex = 11;
@@ -186,23 +187,23 @@
             // 
             // _savePattern
             // 
-            this._savePattern.Location = new System.Drawing.Point(1055, 816);
+            this._savePattern.Location = new System.Drawing.Point(1055, 808);
             this._savePattern.Name = "_savePattern";
             this._savePattern.Size = new System.Drawing.Size(296, 55);
             this._savePattern.TabIndex = 14;
             this._savePattern.Text = "Save Pattern";
             this._savePattern.UseVisualStyleBackColor = true;
-            this._savePattern.Click += new System.EventHandler(this._savePattern_Click);
+            this._savePattern.Click += new System.EventHandler(this.SavePattern_Click);
             // 
             // _deletePattern
             // 
-            this._deletePattern.Location = new System.Drawing.Point(1055, 888);
+            this._deletePattern.Location = new System.Drawing.Point(1055, 880);
             this._deletePattern.Name = "_deletePattern";
             this._deletePattern.Size = new System.Drawing.Size(296, 55);
             this._deletePattern.TabIndex = 15;
             this._deletePattern.Text = "Delete Pattern";
             this._deletePattern.UseVisualStyleBackColor = true;
-            this._deletePattern.Click += new System.EventHandler(this._deletePattern_Click);
+            this._deletePattern.Click += new System.EventHandler(this.DeletePattern_Click);
             // 
             // _label2
             // 
@@ -221,7 +222,7 @@
             this._startStopNextGen.Size = new System.Drawing.Size(28, 27);
             this._startStopNextGen.TabIndex = 18;
             this._startStopNextGen.UseVisualStyleBackColor = true;
-            this._startStopNextGen.MouseClick += new System.Windows.Forms.MouseEventHandler(this._startStopNextGen_MouseClick);
+            this._startStopNextGen.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StartStopNextGen_MouseClick);
             // 
             // _dimensions
             // 
@@ -247,13 +248,13 @@
             // 
             // _loadPattern
             // 
-            this._loadPattern.Location = new System.Drawing.Point(1055, 961);
+            this._loadPattern.Location = new System.Drawing.Point(1055, 952);
             this._loadPattern.Name = "_loadPattern";
             this._loadPattern.Size = new System.Drawing.Size(296, 55);
             this._loadPattern.TabIndex = 20;
             this._loadPattern.Text = "Load Pattern";
             this._loadPattern.UseVisualStyleBackColor = true;
-            this._loadPattern.Click += new System.EventHandler(this._loadPattern_Click);
+            this._loadPattern.Click += new System.EventHandler(this.LoadPattern_Click);
             // 
             // _label7
             // 
@@ -301,7 +302,7 @@
             this.Controls.Add(this._mainBoard);
             this.Name = "_Window";
             this.Text = "Zellenformation";
-            this.Shown += new System.EventHandler(this._Window_Shown);
+            this.Shown += new System.EventHandler(this.Window_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._dimensions)).EndInit();
             this.ResumeLayout(false);

@@ -11,27 +11,31 @@ using System.Windows.Forms;
 
 namespace WForm3_Zellenformation
 {
-    public partial class _Window : Form
+    public partial class Window : Form
     {
         private Board _board;
+        private string patternPath = ".\\..\\TextFiles";
 
-        public _Window()
+        public Window()
         {
             InitializeComponent();
-            _WindowAutoSize();
+            WindowAutoSize();
         }
-        private void _WindowAutoSize()
+
+        private void WindowAutoSize()
         {
             MinimumSize = new Size(735, 575);
             MaximumSize = new Size(735, 575);
         }
-        private void _Window_Shown(object sender, EventArgs e)
+
+        private void Window_Shown(object sender, EventArgs e)
         {
             _board = new Board(Convert.ToInt32(_dimensions.Text));
             DrawGrid();
             UpdatePatternList();
         }
-        public void _mainBoard_MouseClick(object sender, MouseEventArgs e)
+
+        public void MainBoard_MouseClick(object sender, MouseEventArgs e)
         {
             int numOfCells = Convert.ToInt32(_dimensions.Text);
             int cellSize = 501 / numOfCells;
@@ -41,8 +45,10 @@ namespace WForm3_Zellenformation
             int column = ClickPosY / cellSize;
             int RowPos = row * cellSize;
             int ColumnPos = column * cellSize;
+
             Graphics draw = _mainBoard.CreateGraphics();
             Rectangle round;
+
             if (e.Button == MouseButtons.Left)
             {
                 round = new Rectangle(RowPos + 1, ColumnPos + 1, cellSize - 1, cellSize - 1);
@@ -50,6 +56,7 @@ namespace WForm3_Zellenformation
                 draw.FillRectangle(Brushes.LawnGreen, round);
                 _board.SetCellValue(row, column, true);
             }
+
             else if (e.Button == MouseButtons.Right)
             {
                 round = new Rectangle(RowPos + 1, ColumnPos + 1, cellSize - 1, cellSize - 1);
@@ -58,7 +65,7 @@ namespace WForm3_Zellenformation
                 _board.SetCellValue(row, column, false);
             }
         }
-        private void _drawGrid_Click(object sender, EventArgs e)
+        private void DrawGrid_Click(object sender, EventArgs e)
         {
             _board = new Board(Convert.ToInt32(_dimensions.Text));
             var g = _mainBoard.CreateGraphics();
@@ -67,13 +74,16 @@ namespace WForm3_Zellenformation
             DrawGrid();
 
         }
+
         private void DrawGrid()
         {
             var graph = _mainBoard.CreateGraphics();
             int numOfCells = _board._size;
             int cellSizeY = 501 / numOfCells;
             int cellSizeX = 501 / numOfCells;
+
             Pen p = new Pen(Brushes.Black, 1);
+
             for (int y = 0; y < numOfCells + 1; y++)
             {
                 graph.DrawLine(p, 0, y * cellSizeY, numOfCells * cellSizeY, y * cellSizeY);
@@ -83,6 +93,7 @@ namespace WForm3_Zellenformation
             {
                 graph.DrawLine(p, x * cellSizeX, 0, x * cellSizeX, numOfCells * cellSizeX);
             }
+
             for (int i = 0; i < _board._size; i++)
             {
                 for (int j = 0; j < _board._size; j++)
@@ -92,6 +103,7 @@ namespace WForm3_Zellenformation
                         int cellSize = 501 / numOfCells;
                         int RowPos = i * cellSize;
                         int ColumnPos = j * cellSize;
+
                         Graphics draw = _mainBoard.CreateGraphics();
                         var round = new Rectangle(RowPos + 1, ColumnPos + 1, cellSize - 1, cellSize - 1);
                         draw.DrawRectangle(new Pen(Brushes.Black), round);
@@ -102,6 +114,7 @@ namespace WForm3_Zellenformation
                         int cellSize = 501 / numOfCells;
                         int RowPos = i * cellSize;
                         int ColumnPos = j * cellSize;
+
                         Graphics draw = _mainBoard.CreateGraphics();
                         var round = new Rectangle(RowPos + 1, ColumnPos + 1, cellSize - 1, cellSize - 1);
                         draw.DrawRectangle(new Pen(Brushes.Black), round);
@@ -112,19 +125,20 @@ namespace WForm3_Zellenformation
             int livingCellsNum = _board.CountCells(true);
             var lCNText = Convert.ToString(livingCellsNum);
             _livingCellCounter.Text = lCNText;
+
             var GenerationCounter = Convert.ToString(_board._genNum);
             _genCounter.Text = GenerationCounter;
 
         }
 
-        private void _nextGen_Click(object sender, EventArgs e)
+        private void NextGen_Click(object sender, EventArgs e)
         {
             _genCounter.Text = string.Empty;
             _board.CalcNextGen();
             DrawGrid();
         }
 
-        private void _startStopNextGen_MouseClick(object sender, MouseEventArgs e)
+        private void StartStopNextGen_MouseClick(object sender, MouseEventArgs e)
         {
             if (_startStopNextGen.Checked)
             {
@@ -150,7 +164,7 @@ namespace WForm3_Zellenformation
             }
         }
 
-        private void _savePattern_Click(object sender, EventArgs e)
+        private void SavePattern_Click(object sender, EventArgs e)
         {
             StringBuilder line = new StringBuilder();
             for (int i = 0; i < _board._size; i++)
@@ -164,23 +178,25 @@ namespace WForm3_Zellenformation
                     }
                 }
             }
-            System.IO.File.WriteAllText("C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text + ".txt", line.ToString());
+            System.IO.File.WriteAllText(patternPath + "\\" + _patternList.Text + ".txt", line.ToString());
             UpdatePatternList();
         }
 
         private void UpdatePatternList()
         {
             _patternList.Items.Clear();
-            var folder = new System.IO.DirectoryInfo(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles");
+            var folder = new System.IO.DirectoryInfo(patternPath);
             var files = folder.GetFiles();
 
             var filenNames = files.Select(f => f.Name).ToArray();
             this._patternList.Items.AddRange(filenNames);
         }
-        private void _loadPattern_Click(object sender, EventArgs e)
+
+        private void LoadPattern_Click(object sender, EventArgs e)
         {
             _board.Clear();
-            string[] lines = System.IO.File.ReadAllLines(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text);
+
+            string[] lines = System.IO.File.ReadAllLines(patternPath + "\\" + _patternList.Text);
             var cellStrings = lines[0].Split(";".ToCharArray());
             for (int i = 0; i < cellStrings.Length - 1; i++)
             {
@@ -189,11 +205,13 @@ namespace WForm3_Zellenformation
                 var column = Convert.ToInt32(splitCellStrings[1]);
                 _board.SetCellValue(row, column, true);
             }
+
             DrawGrid();
         }
-        private void _deletePattern_Click(object sender, EventArgs e)
+
+        private void DeletePattern_Click(object sender, EventArgs e)
         {
-            File.Delete(@"C:\\Users\\Nicola Allenspach\\source\\repos\\Uni-SG\\WForm3-Zellenformation\\TextFiles\\" + _patternList.Text);
+            File.Delete(patternPath + "\\" + _patternList.Text);
             UpdatePatternList();
         }
     }

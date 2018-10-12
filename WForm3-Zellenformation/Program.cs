@@ -16,7 +16,7 @@ namespace WForm3_Zellenformation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new _Window());
+            Application.Run(new Window());
         }
     }
 }
